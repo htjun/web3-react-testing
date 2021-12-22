@@ -1,4 +1,4 @@
-import '../styles/globals.css'
+import destyle from "destyle.css"
 
 function MyApp({ Component, pageProps }) {
   return <Component {...pageProps} />

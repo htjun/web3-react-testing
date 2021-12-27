@@ -98,10 +98,12 @@ const Home = () => {
             nfts.assets.map((asset) => {
               return (
                 <li key={asset.id}>
-                  <NFTImg
-                    src={asset.image_preview_url}
-                    alt={asset.description}
-                  />
+                  <a href={asset.permalink} target="_blank" rel="noreferrer">
+                    <NFTImg
+                      src={asset.image_preview_url}
+                      alt={asset.description}
+                    />
+                  </a>
                 </li>
               )
             })}

@@ -78,9 +78,14 @@ const Home = () => {
         accountChangedHandler(res[0])
         getAssets(res[0])
       })
+      window.ethereum.on("accountsChanged", accountChangedHandler)
     } else {
       console.log("no metamask")
     }
+  }
+
+  const disconnectWalletHandler = () => {
+    window.location.reload()
   }
 
   const accountChangedHandler = (newAccount) => {
@@ -91,7 +96,11 @@ const Home = () => {
     <Wrapper>
       <Container>
         <Heading>web3-react testing</Heading>
-        <Button onClick={connectWalletHandler}>Connect Wallet</Button>
+        {currentAccount ? (
+          <Button onClick={disconnectWalletHandler}>Disconnect Wallet</Button>
+        ) : (
+          <Button onClick={connectWalletHandler}>Connect Wallet</Button>
+        )}
         <p>{`Current account: ${currentAccount}`}</p>
         <ImgGrid>
           {nfts &&

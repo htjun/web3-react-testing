@@ -41,7 +41,7 @@ const Button = styled("button", {
   },
 })
 
-const ImgGrid = styled("ul", {
+const NFTGrid = styled("ul", {
   display: "grid",
   gridTemplateColumns: "repeat(3, 1fr)",
   gridGap: "12px",
@@ -102,7 +102,7 @@ const Home = () => {
           <Button onClick={connectWalletHandler}>Connect Wallet</Button>
         )}
         <p>{`Current account: ${currentAccount}`}</p>
-        <ImgGrid>
+        <NFTGrid>
           {nfts &&
             nfts.assets.map((asset) => {
               return (
@@ -113,10 +113,12 @@ const Home = () => {
                       alt={asset.description}
                     />
                   </a>
+                  <p>{asset.collection.name}</p>
+                  <p>{asset.collection.description}</p>
                 </li>
               )
             })}
-        </ImgGrid>
+        </NFTGrid>
       </Container>
     </Wrapper>
   )

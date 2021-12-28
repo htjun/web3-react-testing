@@ -44,12 +44,25 @@ const Button = styled("button", {
 const NFTGrid = styled("ul", {
   display: "grid",
   gridTemplateColumns: "repeat(3, 1fr)",
-  gridGap: "12px",
+  gridGap: "24px",
   marginTop: "32px",
+  maxWidth: "1140px",
 })
 
 const NFTImg = styled("img", {
   width: "100%",
+})
+
+const CollectionTitle = styled("h3", {
+  marginTop: "16px",
+  fontWeight: "600",
+})
+
+const CollectionDescription = styled("p", {
+  fontSize: "14px",
+  marginTop: "16px",
+  color: "grey",
+  lineHeight: 1.5,
 })
 
 const Home = () => {
@@ -113,8 +126,10 @@ const Home = () => {
                       alt={asset.description}
                     />
                   </a>
-                  <p>{asset.collection.name}</p>
-                  <p>{asset.collection.description}</p>
+                  <CollectionTitle>{asset.collection.name}</CollectionTitle>
+                  <CollectionDescription>
+                    {asset.collection.description}
+                  </CollectionDescription>
                 </li>
               )
             })}
